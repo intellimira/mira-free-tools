@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Compliance Score Calculator</title>
+                <meta name="description" content="Evaluate your AI systems against major compliance frameworks with this free risk scoring tool">
+    <meta property="og:title" content="AI Compliance Score Calculator — Free Online Tool">
+    <meta property="og:description" content="Evaluate your AI systems against major compliance frameworks with this free risk scoring tool">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .score {
+            font-size: 24px;
+            color: #007bff;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+  <link rel="stylesheet" href="/docs/mira-design-tokens.css">
+</head>
+<body>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<header class="mira-header" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.5rem;background:var(--bg-chrome,rgba(21,24,30,0.92));backdrop-filter:blur(12px);border-bottom:1px solid var(--border,#222833);font-family:'Inter',system-ui,sans-serif">
+  <a href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none">
+    <div style="width:2rem;height:2rem;border-radius:0.5rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+      <span style="color:#5b7fa5;font-weight:700;font-size:0.875rem">M</span>
+    </div>
+    <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:1.125rem;letter-spacing:-0.02em">MIRA</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:0.25rem">
+    <a href="/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Home</a>
+    <a href="/docs/free_tools/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Tools</a>
+  </nav>
+</header>
+
+    <div class="container">
+        <h2>AI Compliance Score Calculator</h2>
+        <form id="complianceForm">
+            <label for="detail1">Detail 1:</label>
+            <input type="text" id="detail1" required>
+            <label for="detail2">Detail 2:</label>
+            <input type="text" id="detail2" required>
+            <label for="detail3">Detail 3:</label>
+            <input type="text" id="detail3" required>
+            <label for="detail4">Detail 4:</label>
+            <input type="text" id="detail4" required>
+            <label for="detail5">Detail 5:</label>
+            <input type="text" id="detail5" required>
+            <button type="button" onclick="calculateScore()">Calculate Scor
+Score</button>
+        </form>
+        <div class="score" id="score">0</div>
+        <div class="feedback" id="feedback"></div>
+        <div class="footer">
+            <p><a href="https://whop.com/checkout/plan_TGwx1o2rPeyJx?utm_source=free_tool&utm_medium=organic&utm_campaign=shadow_ops&utm_content=ai_compliance_score_calculator" target="_blank" rel="noopener"><strong>Get the full AI Compliance Toolkit ($497)</strong></a></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const details = [
+                document.getElementById('detail1').value,
+                document.getElementById('detail2').value,
+                document.getElementById('detail3').value,
+                document.getElementById('detail4').value,
+                document.getElementById('detail5').value
+            ];
+
+            let score = 0;
+            details.forEach(detail => {
+                if (detail.toLowerCase().includes('compliant')) {
+                    score += 20;
+                } else if (detail.toLowerCase().includes('non-compliant')) {
+                    score -= 20;
+                }
+            });
+
+            score = Math.max(0, Math.min(100, score));
+            document.getElementById('score').innerText = score;
+            document.getElementById('feedback').innerText = score >= 80 ? 'Great job!' : score >= 50 ? 'Good effort.' : 'Needs improvement.';
+        }
+    </script>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<footer style="padding:1.5rem;border-top:1px solid var(--border,#222833);background:var(--bg,#15181e);font-family:'Inter',system-ui,sans-serif">
+  <div style="max-width:72rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem">
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <div style="width:1.5rem;height:1.5rem;border-radius:0.375rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+        <span style="color:#5b7fa5;font-weight:700;font-size:0.6875rem">M</span>
+      </div>
+      <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:0.875rem">MIRA</span>
+    </div>
+    <p style="margin:0;font-size:0.75rem;color:var(--text-muted,#8896a8)">Sovereign AI Ecosystem — Built with discipline. Grown with purpose.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Subject Line Tester</title>
+                <meta name="description" content="Test and score your email subject lines for open rates and engagement potential">
+    <meta property="og:title" content="Email Subject Line Tester — Free Online Tool">
+    <meta property="og:description" content="Test and score your email subject lines for open rates and engagement potential">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .score.high {
+            color: green;
+        }
+        .score.low {
+            color: red;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+  <link rel="stylesheet" href="/docs/mira-design-tokens.css">
+</head>
+<body>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<header class="mira-header" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.5rem;background:var(--bg-chrome,rgba(21,24,30,0.92));backdrop-filter:blur(12px);border-bottom:1px solid var(--border,#222833);font-family:'Inter',system-ui,sans-serif">
+  <a href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none">
+    <div style="width:2rem;height:2rem;border-radius:0.5rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+      <span style="color:#5b7fa5;font-weight:700;font-size:0.875rem">M</span>
+    </div>
+    <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:1.125rem;letter-spacing:-0.02em">MIRA</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:0.25rem">
+    <a href="/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Home</a>
+    <a href="/docs/free_tools/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Tools</a>
+  </nav>
+</header>
+
+    <div class="container">
+        <h1>Email Subject Line Tester</h1>
+        <form id="subjectForm">
+            <input type="text" id="subjectLine" placeholder="Enter subject 
+line">
+            <button type="button" onclick="calculateScore()">Get Open Rate 
+Prediction</button>
+        </form>
+        <div class="score" id="scoreDisplay"></div>
+        <div class="footer">
+            <a href="https://whop.com/checkout/plan_jOuYrJ8Pmyqwh?utm_source=free_tool&utm_medium=organic&utm_campaign=shadow_ops&utm_content=email_subject_line_tester" target="_blank" rel="noopener"><strong>Get the full Email & Marketing Automation ($97)</strong></a>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const subject = document.getElementById('subjectLine').value;
+            let score = 0;
+
+            if (subject.length >= 5 && subject.length <= 50) score += 10;
+            if (subject.includes('free')) score += 15;
+            if (subject.includes('limited time')) score += 10;
+            if (subject.includes('winner')) score += 15;
+            if (subject.includes('exclusive')) score += 10;
+
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const text = 'Open Rate Prediction: ' + score + '%';
+            if (score >= 60) {
+                scoreDisplay.textContent = text;
+                scoreDisplay.classList.add('high');
+                scoreDisplay.classList.remove('low');
+            } else {
+                scoreDisplay.textContent = text;
+                scoreDisplay.classList.add('low');
+                scoreDisplay.classList.remove('high');
+            }
+        }
+    </script>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<footer style="padding:1.5rem;border-top:1px solid var(--border,#222833);background:var(--bg,#15181e);font-family:'Inter',system-ui,sans-serif">
+  <div style="max-width:72rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem">
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <div style="width:1.5rem;height:1.5rem;border-radius:0.375rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+        <span style="color:#5b7fa5;font-weight:700;font-size:0.6875rem">M</span>
+      </div>
+      <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:0.875rem">MIRA</span>
+    </div>
+    <p style="margin:0;font-size:0.75rem;color:var(--text-muted,#8896a8)">Sovereign AI Ecosystem — Built with discipline. Grown with purpose.</p>
+  </div>
+</footer>
+</body>
+</html>

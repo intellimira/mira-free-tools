@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Metrics Dashboard Calculator</title>
+                <meta name="description" content="Calculate your SaaS key metrics including MRR, churn, LTV, and CAC with this dashboard tool">
+    <meta property="og:title" content="SaaS Metrics Dashboard Calculator — Free Online Tool">
+    <meta property="og:description" content="Calculate your SaaS key metrics including MRR, churn, LTV, and CAC with this dashboard tool">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .cta {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .cta a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+  <link rel="stylesheet" href="/docs/mira-design-tokens.css">
+</head>
+<body>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<header class="mira-header" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.5rem;background:var(--bg-chrome,rgba(21,24,30,0.92));backdrop-filter:blur(12px);border-bottom:1px solid var(--border,#222833);font-family:'Inter',system-ui,sans-serif">
+  <a href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none">
+    <div style="width:2rem;height:2rem;border-radius:0.5rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+      <span style="color:#5b7fa5;font-weight:700;font-size:0.875rem">M</span>
+    </div>
+    <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:1.125rem;letter-spacing:-0.02em">MIRA</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:0.25rem">
+    <a href="/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Home</a>
+    <a href="/docs/free_tools/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Tools</a>
+  </nav>
+</header>
+
+    <div class="container">
+        <h1>SaaS Metrics Dashboard Calculator</h1>
+        <form id="metricsForm">
+            <label for="mrr">MRR:</label>
+            <input type="number" id="mrr" required>
+            <label for="churn">Churn Rate:</label>
+            <input type="number" id="churn" required>
+            <label for="users">Users:</label>
+            <input type="number" id="users" required>
+            <button type="submit">Calculate Score</button>
+        </form>
+        <div id="result" class="score"></div>
+        <div id="feedback" class="feedback"></div>
+        <div class="cta">
+            <a href="https://whop.com/checkout/plan_PzP7c9FxhjI1w?utm_source=free_tool&utm_medium=organic&utm_campaign=shadow_ops&utm_content=saas_metrics_dashboard_calculator" target="_blank" rel="noopener"><strong>Get the full SaaS Developer Toolkit ($417)</strong></a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('metricsForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const mrr = parseFloat(document.getElementById('mrr').value);
+            const churn = parseFloat(document.getElementById('churn').value);
+            const users = parseFloat(document.getElementById('users').value);
+            const score = calculateScore(mrr, churn, users);
+            displayScore(score);
+        });
+
+        function calculateScore(mrr, churn, users) {
+            const churnRate = churn / 100;
+            const avgMrrPerUser = mrr / users;
+            return (avgMrrPerUser * (1 - churnRate)) / (mrr / users);
+        }
+
+        function displayScore(score) {
+            const resultDiv = document.getElementById('result');
+            const feedbackDiv = document.getElementById('feedback');
+            resultDiv.textContent = score.toFixed(2);
+            if (score >= 0.5) {
+                feedbackDiv.textContent = 'Good!';
+                feedbackDiv.style.color = '#28a745';
+            } else {
+                feedbackDiv.textContent = 'Improve!';
+                feedbackDiv.style.color = '#dc3545';
+            }
+        }
+    </script>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<footer style="padding:1.5rem;border-top:1px solid var(--border,#222833);background:var(--bg,#15181e);font-family:'Inter',system-ui,sans-serif">
+  <div style="max-width:72rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem">
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <div style="width:1.5rem;height:1.5rem;border-radius:0.375rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+        <span style="color:#5b7fa5;font-weight:700;font-size:0.6875rem">M</span>
+      </div>
+      <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:0.875rem">MIRA</span>
+    </div>
+    <p style="margin:0;font-size:0.75rem;color:var(--text-muted,#8896a8)">Sovereign AI Ecosystem — Built with discipline. Grown with purpose.</p>
+  </div>
+</footer>
+</body>
+</html>

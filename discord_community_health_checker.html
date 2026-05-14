@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discord Community Health Checker</title>
+            <meta name="description" content="Assess your Discord server's health with engagement metrics and growth recommendations">
+    <meta property="og:title" content="Discord Community Health Checker — Free Online Tool">
+    <meta property="og:description" content="Assess your Discord server's health with engagement metrics and growth recommendations">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  .container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #333;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  .score {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #007bff;
+  }
+  .healthy {
+    color: #28a745;
+  }
+  .unhealthy {
+    color: #dc3545;
+  }
+  footer {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+</style>
+  <link rel="stylesheet" href="/docs/mira-design-tokens.css">
+</head>
+<body>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<header class="mira-header" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.5rem;background:var(--bg-chrome,rgba(21,24,30,0.92));backdrop-filter:blur(12px);border-bottom:1px solid var(--border,#222833);font-family:'Inter',system-ui,sans-serif">
+  <a href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none">
+    <div style="width:2rem;height:2rem;border-radius:0.5rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+      <span style="color:#5b7fa5;font-weight:700;font-size:0.875rem">M</span>
+    </div>
+    <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:1.125rem;letter-spacing:-0.02em">MIRA</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:0.25rem">
+    <a href="/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Home</a>
+    <a href="/docs/free_tools/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Tools</a>
+  </nav>
+</header>
+
+
+<div class="container">
+  <h1>Discord Community Health Checker</h1>
+  <p>Enter member count and activity to get the health score.</p>
+  <input type="number" id="memberCount" placeholder="Member Count">
+  <input type="number" id="activity" placeholder="Activity (0-100)">
+  <button onclick="calculateHealth()">Check Health</button>
+  <div class="score" id="healthScore">Health Score: -</div>
+  <footer>
+    Get the full Discord Bot Builder <a href="https://whop.com/checkout/plan_JdFqtuISWB5Rj?utm_source=free_tool&utm_medium=organic&utm_campaign=shadow_ops&utm_content=discord_community_health_checker" target="_blank" rel="noopener"><strong>Get the full Discord Automation Pack ($127)</strong></a>
+  </footer>
+</div>
+
+<script>
+  function calculateHealth() {
+    const memberCount = parseInt(document.getElementById('memberCount').value) || 0;
+    const activity = parseInt(document.getElementById('activity').value) || 0;
+    const total = memberCount + activity;
+    const score = (total / (100 + 1000)) * 100;
+    const healthScore = document.getElementById('healthScore');
+    if (score >= 80) {
+      healthScore.classList.add('healthy');
+      healthScore.classList.remove('unhealthy');
+    } else {
+      healthScore.classList.add('unhealthy');
+      healthScore.classList.remove('healthy');
+    }
+    healthScore.textContent = 'Health Score: ' + score.toFixed(2);
+  }
+</script>
+
+<!-- MIRA Brand Chrome — injected by ADS -->
+<footer style="padding:1.5rem;border-top:1px solid var(--border,#222833);background:var(--bg,#15181e);font-family:'Inter',system-ui,sans-serif">
+  <div style="max-width:72rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem">
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <div style="width:1.5rem;height:1.5rem;border-radius:0.375rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+        <span style="color:#5b7fa5;font-weight:700;font-size:0.6875rem">M</span>
+      </div>
+      <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:0.875rem">MIRA</span>
+    </div>
+    <p style="margin:0;font-size:0.75rem;color:var(--text-muted,#8896a8)">Sovereign AI Ecosystem — Built with discipline. Grown with purpose.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Business Tools — 16 Online Analyzers & Calculators</title>
+    <meta name="description" content="Free online business tools: AI compliance, content creation, social media, SEO, productivity, and more. No signup required.">
+    <meta property="og:title" content="Free Business Tools — 16 Online Analyzers & Calculators">
+    <meta property="og:description" content="Free online business tools: AI compliance, content creation, social media, SEO, productivity, and more. No signup required.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-size: 2.2em; margin-bottom: 10px; }
+        header p { color: #6e6e73; font-size: 1.1em; }
+        .categories { margin-bottom: 30px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        .categories button { background: #e8e8ed; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9em; transition: all 0.2s; }
+        .categories button:hover, .categories button.active { background: #0071e3; color: #fff; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        .card h3 { font-size: 1em; margin-bottom: 8px; }
+        .card p { font-size: 0.85em; color: #6e6e73; margin-bottom: 12px; }
+        .card .meta { font-size: 0.75em; color: #86868b; margin-bottom: 10px; }
+        .card .meta span { background: #f0f0f5; padding: 2px 8px; border-radius: 4px; margin-right: 4px; }
+        .card a { display: inline-block; background: #0071e3; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 0.85em; font-weight: 500; transition: background 0.2s; }
+        .card a:hover { background: #0060c9; }
+        .card a.whop-link { background: transparent; color: #0071e3; border: 1px solid #0071e3; margin-left: 8px; }
+        .card a.whop-link:hover { background: #0071e3; color: #fff; }
+        footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #d2d2d7; color: #6e6e73; font-size: 0.85em; }
+        footer a { color: #0071e3; text-decoration: none; }
+        .search { width: 100%; padding: 12px 16px; border: 1px solid #d2d2d7; border-radius: 10px; font-size: 1em; margin-bottom: 20px; outline: none; }
+        .search:focus { border-color: #0071e3; }
+        @media (max-width: 600px) { header h1 { font-size: 1.5em; } .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Free Business Tools</h1>
+            <p>16 online analyzers, calculators, and assessors — no signup, no cost.</p>
+        </header>
+
+        <input type="text" class="search" id="search" placeholder="Search tools..." oninput="filterTools()">
+
+        <div class="categories" id="categories">
+            <button class="active" onclick="filterCategory('all')">All</button>
+            <button onclick="filterCategory('compliance')">Compliance</button>
+            <button onclick="filterCategory('content')">Content</button>
+            <button onclick="filterCategory('social')">Social</button>
+            <button onclick="filterCategory('business')">Business</button>
+            <button onclick="filterCategory('dev')">Dev & SaaS</button>
+            <button onclick="filterCategory('productivity')">Productivity</button>
+            <button onclick="filterCategory('crypto')">Crypto</button>
+        </div>
+
+        <div class="grid" id="toolGrid"></div>
+
+        <footer>
+            <p>Built by <a href="https://whop.com/mira-your-2nd-mind-ai" target="_blank" rel="noopener">MIRA — Your 2nd Mind AI</a></p>
+            <p>Need the full toolkit? <a href="https://whop.com/mira-your-2nd-mind-ai" target="_blank" rel="noopener">Browse our Pro suites →</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const tools = [
+            { name: "AI Compliance Score Calculator", file: "ai_compliance_score_calculator.html", desc: "Evaluate your AI systems against major compliance frameworks.", cat: "compliance", price: "$497", product: "AI Compliance Toolkit" },
+            { name: "Headline Emotional Impact Checker", file: "headline_emotional_impact_checker.html", desc: "Test headlines for emotional resonance and engagement.", cat: "content", price: "$397", product: "AI Content Creation Suite" },
+            { name: "Business Model Canvas Generator", file: "business_model_canvas_generator.html", desc: "Generate a professional business model canvas in minutes.", cat: "business", price: "$97", product: "Business Strategy & Finance Fixes" },
+            { name: "SaaS Metrics Dashboard Calculator", file: "saas_metrics_dashboard_calculator.html", desc: "Calculate MRR, churn, LTV, and CAC metrics.", cat: "dev", price: "$417", product: "SaaS Developer Toolkit" },
+            { name: "LinkedIn Connection Message Optimizer", file: "linkedin_connection_message_optimizer.html", desc: "Optimize LinkedIn outreach for higher acceptance rates.", cat: "social", price: "$147", product: "LinkedIn Automation Toolkit" },
+            { name: "E-Commerce Shipping Cost Estimator", file: "e-commerce_shipping_cost_estimator.html", desc: "Estimate shipping costs and optimize fulfillment.", cat: "business", price: "$97", product: "Logistics & Supply Chain Toolkit" },
+            { name: "Twitter Engagement Predictor", file: "twitter_engagement_predictor.html", desc: "Predict engagement rates and optimize posting strategy.", cat: "social", price: "$97", product: "Twitter/X Growth Suite" },
+            { name: "Email Subject Line Tester", file: "email_subject_line_tester.html", desc: "Score email subject lines for open rate potential.", cat: "content", price: "$97", product: "Email & Marketing Automation" },
+            { name: "Discord Community Health Checker", file: "discord_community_health_checker.html", desc: "Assess Discord server health and growth metrics.", cat: "social", price: "$127", product: "Discord Automation Pack" },
+            { name: "Crypto Portfolio Risk Calculator", file: "crypto_portfolio_risk_calculator.html", desc: "Calculate and analyze cryptocurrency portfolio risk.", cat: "crypto", price: "$297", product: "AI Crypto Suite" },
+            { name: "Notion Workspace Audit Tool", file: "notion_workspace_audit_tool.html", desc: "Audit Notion workspace organization and productivity.", cat: "productivity", price: "$317", product: "Notion Productivity Hub" },
+            { name: "YouTube Thumbnail CTR Predictor", file: "youtube_thumbnail_ctr_predictor.html", desc: "Predict thumbnail click-through rates before publishing.", cat: "content", price: "$277", product: "YouTube Creator Suite" },
+            { name: "Pomodoro Focus Score Tracker", file: "pomodoro_focus_score_tracker.html", desc: "Track focus sessions and productivity scores.", cat: "productivity", price: "$97", product: "Productivity & Focus Suite" },
+            { name: "Second Brain Knowledge Gap Finder", file: "second_brain_knowledge_gap_finder.html", desc: "Identify gaps in your knowledge management system.", cat: "productivity", price: "$97", product: "MIRA Ecosystem" },
+            { name: "MIRA Quick-Start Assessment", file: "mira_quick-start_assessment.html", desc: "Assess your AI productivity setup and get recommendations.", cat: "productivity", price: "$97", product: "MIRA Ecosystem" },
+            { name: "AI Tool Stack ROI Calculator", file: "ai_tool_stack_roi_calculator.html", desc: "Calculate ROI of your AI tools and find cost savings.", cat: "dev", price: "$497", product: "AI Compliance Toolkit" }
+        ];
+
+        function renderTools(filtered) {
+            const grid = document.getElementById('toolGrid');
+            grid.innerHTML = filtered.map(t => `
+                <div class="card">
+                    <h3>${t.name}</h3>
+                    <p>${t.desc}</p>
+                    <div class="meta"><span>${t.cat}</span> <span>${t.product}</span></div>
+                    <a href="${t.file}" target="_blank">Use Free Tool</a>
+                    <a href="#" class="whop-link">Get Pro (${t.price})</a>
+                </div>
+            `).join('');
+        }
+
+        function filterTools() {
+            const q = document.getElementById('search').value.toLowerCase();
+            const filtered = tools.filter(t => t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.cat.includes(q));
+            renderTools(filtered);
+        }
+
+        function filterCategory(cat) {
+            document.querySelectorAll('.categories button').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            const filtered = cat === 'all' ? tools : tools.filter(t => t.cat === cat);
+            renderTools(filtered);
+        }
+
+        renderTools(tools);
+    </script>
+</body>
+</html>

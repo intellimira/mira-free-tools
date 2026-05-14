@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Model Canvas Generator</title>
+                <meta name="description" content="Generate a professional business model canvas in minutes with this interactive tool">
+    <meta property="og:title" content="Business Model Canvas Generator — Free Online Tool">
+    <meta property="og:description" content="Generate a professional business model canvas in minutes with this interactive tool">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .score {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+        .feedback {
+            margin-top: 10px;
+        }
+        .cta {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cta a {
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+  <link rel="stylesheet" href="/docs/mira-design-tokens.css">
+</head>
+<body>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<header class="mira-header" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.5rem;background:var(--bg-chrome,rgba(21,24,30,0.92));backdrop-filter:blur(12px);border-bottom:1px solid var(--border,#222833);font-family:'Inter',system-ui,sans-serif">
+  <a href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none">
+    <div style="width:2rem;height:2rem;border-radius:0.5rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+      <span style="color:#5b7fa5;font-weight:700;font-size:0.875rem">M</span>
+    </div>
+    <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:1.125rem;letter-spacing:-0.02em">MIRA</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:0.25rem">
+    <a href="/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Home</a>
+    <a href="/docs/free_tools/" style="padding:0.375rem 0.75rem;font-size:0.8125rem;color:var(--text-muted,#8896a8);text-decoration:none;border-radius:0.375rem">Tools</a>
+  </nav>
+</header>
+
+    <h1>Business Model Canvas Generator</h1>
+    <form id="modelCanvasForm">
+        <label for="modelType">Model Type:</label>
+        <input type="text" id="modelType" name="modelType" required><br><br
+required><br><br>
+        <label for="parentProduct">Parent Product:</label>
+        <input type="text" id="parentProduct" name="parentProduct" required
+required><br><br>
+        <label for="hookValue">Hook/Value:</label>
+        <input type="text" id="hookValue" name="hookValue" required><br><br
+required><br><br>
+        <label for="leadMagnet">Lead Magnet:</label>
+        <input type="text" id="leadMagnet" name="leadMagnet" required><br><br>
+        <label for="requirements">Requirements:</label>
+        <textarea id="requirements" name="requirements" required></textarea
+required></textarea><br><br>
+        <button type="button" onclick="calculateScore()">Calculate Score</b
+Score</button>
+    </form>
+    <div class="container" id="scoreContainer">
+        <div class="score" id="scoreDisplay"></div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+    <div class="cta">
+            <a href="https://whop.com/checkout/plan_1Coo860dpOi1b?utm_source=free_tool&utm_medium=organic&utm_campaign=shadow_ops&utm_content=business_model_canvas_generator" target="_blank" rel="noopener"><strong>Get the full Business Strategy & Finance Fixes ($97)</strong></a>
+        </div>
+
+    <script>
+        function calculateScore() {
+            const modelType = document.getElementById('modelType').value;
+            const parentProduct = document.getElementById('parentProduct').value;
+            const hookValue = document.getElementById('hookValue').value;
+            const leadMagnet = document.getElementById('leadMagnet').value;
+            const requirements = document.getElementById('requirements').value;
+
+            let score = 0;
+            if (modelType) score += 5;
+            if (parentProduct) score += 5;
+            if (hookValue) score += 5;
+            if (leadMagnet) score += 5;
+            if (requirements) score += 5;
+
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const feedback = document.getElementById('feedback');
+            scoreDisplay.textContent = score;
+
+            if (score >= 30) {
+                feedback.textContent = 'Excellent! Your Business Model Canvas is strong.';
+                feedback.style.color = 'green';
+            } else if (score >= 20) {
+                feedback.textContent = 'Good! Your Business Model Canvas is solid.';
+                feedback.style.color = 'blue';
+            } else {
+                feedback.textContent = 'Needs Improvement. Work on your Business Model Canvas.';
+                feedback.style.color = 'red';
+            }
+        }
+    </script>
+<!-- MIRA Brand Chrome — injected by ADS -->
+<footer style="padding:1.5rem;border-top:1px solid var(--border,#222833);background:var(--bg,#15181e);font-family:'Inter',system-ui,sans-serif">
+  <div style="max-width:72rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem">
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <div style="width:1.5rem;height:1.5rem;border-radius:0.375rem;background:rgba(62,80,102,0.2);display:flex;align-items:center;justify-content:center">
+        <span style="color:#5b7fa5;font-weight:700;font-size:0.6875rem">M</span>
+      </div>
+      <span style="font-weight:600;color:var(--text-strong,#eef2f7);font-size:0.875rem">MIRA</span>
+    </div>
+    <p style="margin:0;font-size:0.75rem;color:var(--text-muted,#8896a8)">Sovereign AI Ecosystem — Built with discipline. Grown with purpose.</p>
+  </div>
+</footer>
+</body>
+</html>
