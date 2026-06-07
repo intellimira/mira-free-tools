@@ -9,6 +9,21 @@
     <meta property="og:description" content="Free online business tools: AI compliance, content creation, social media, SEO, productivity, and more. No signup required.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
+    <!-- Analytics: Plausible (privacy-first). Sign up at https://plausible.io, add your domain, then uncomment: -->
+    <!-- <script defer data-domain="intellimira.github.io" src="https://plausible.io/js/script.js"></script> -->
+    <!-- Conversion tracking: logs clicks to Whop store (local fallback) -->
+    <script>
+        // Track outbound clicks to Whop for analytics-free conversion counting
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (link && link.href && link.href.includes('whop.com')) {
+                // Store click event in localStorage for later retrieval
+                var clicks = JSON.parse(localStorage.getItem('whop_clicks') || '[]');
+                clicks.push({ url: link.href, time: new Date().toISOString(), tool: link.dataset.tool || 'unknown' });
+                localStorage.setItem('whop_clicks', JSON.stringify(clicks.slice(-50)));
+            }
+        });
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.6; }
@@ -67,22 +82,22 @@
 
     <script>
         const tools = [
-            { name: "AI Compliance Score Calculator", file: "ai_compliance_score_calculator.html", desc: "Evaluate your AI systems against major compliance frameworks.", cat: "compliance", price: "$497", product: "AI Compliance Toolkit" },
-            { name: "Headline Emotional Impact Checker", file: "headline_emotional_impact_checker.html", desc: "Test headlines for emotional resonance and engagement.", cat: "content", price: "$397", product: "AI Content Creation Suite" },
-            { name: "Business Model Canvas Generator", file: "business_model_canvas_generator.html", desc: "Generate a professional business model canvas in minutes.", cat: "business", price: "$97", product: "Business Strategy & Finance Fixes" },
-            { name: "SaaS Metrics Dashboard Calculator", file: "saas_metrics_dashboard_calculator.html", desc: "Calculate MRR, churn, LTV, and CAC metrics.", cat: "dev", price: "$417", product: "SaaS Developer Toolkit" },
-            { name: "LinkedIn Connection Message Optimizer", file: "linkedin_connection_message_optimizer.html", desc: "Optimize LinkedIn outreach for higher acceptance rates.", cat: "social", price: "$147", product: "LinkedIn Automation Toolkit" },
-            { name: "E-Commerce Shipping Cost Estimator", file: "e-commerce_shipping_cost_estimator.html", desc: "Estimate shipping costs and optimize fulfillment.", cat: "business", price: "$97", product: "Logistics & Supply Chain Toolkit" },
-            { name: "Twitter Engagement Predictor", file: "twitter_engagement_predictor.html", desc: "Predict engagement rates and optimize posting strategy.", cat: "social", price: "$97", product: "Twitter/X Growth Suite" },
-            { name: "Email Subject Line Tester", file: "email_subject_line_tester.html", desc: "Score email subject lines for open rate potential.", cat: "content", price: "$97", product: "Email & Marketing Automation" },
-            { name: "Discord Community Health Checker", file: "discord_community_health_checker.html", desc: "Assess Discord server health and growth metrics.", cat: "social", price: "$127", product: "Discord Automation Pack" },
-            { name: "Crypto Portfolio Risk Calculator", file: "crypto_portfolio_risk_calculator.html", desc: "Calculate and analyze cryptocurrency portfolio risk.", cat: "crypto", price: "$297", product: "AI Crypto Suite" },
-            { name: "Notion Workspace Audit Tool", file: "notion_workspace_audit_tool.html", desc: "Audit Notion workspace organization and productivity.", cat: "productivity", price: "$317", product: "Notion Productivity Hub" },
-            { name: "YouTube Thumbnail CTR Predictor", file: "youtube_thumbnail_ctr_predictor.html", desc: "Predict thumbnail click-through rates before publishing.", cat: "content", price: "$277", product: "YouTube Creator Suite" },
-            { name: "Pomodoro Focus Score Tracker", file: "pomodoro_focus_score_tracker.html", desc: "Track focus sessions and productivity scores.", cat: "productivity", price: "$97", product: "Productivity & Focus Suite" },
-            { name: "Second Brain Knowledge Gap Finder", file: "second_brain_knowledge_gap_finder.html", desc: "Identify gaps in your knowledge management system.", cat: "productivity", price: "$97", product: "MIRA Ecosystem" },
-            { name: "MIRA Quick-Start Assessment", file: "mira_quick-start_assessment.html", desc: "Assess your AI productivity setup and get recommendations.", cat: "productivity", price: "$97", product: "MIRA Ecosystem" },
-            { name: "AI Tool Stack ROI Calculator", file: "ai_tool_stack_roi_calculator.html", desc: "Calculate ROI of your AI tools and find cost savings.", cat: "dev", price: "$497", product: "AI Compliance Toolkit" }
+            { name: "AI Compliance Score Calculator", file: "ai_compliance_score_calculator.html", desc: "Evaluate your AI systems against major compliance frameworks.", cat: "compliance", price: "$47", product: "AI Compliance Toolkit", checkout: "https://whop.com/checkout/plan_TGwx1o2rPeyJx" },
+            { name: "Headline Emotional Impact Checker", file: "headline_emotional_impact_checker.html", desc: "Test headlines for emotional resonance and engagement.", cat: "content", price: "$47", product: "AI Content Creation Suite", checkout: "https://whop.com/checkout/plan_pRmEOl7qTLNod" },
+            { name: "Business Model Canvas Generator", file: "business_model_canvas_generator.html", desc: "Generate a professional business model canvas in minutes.", cat: "business", price: "$47", product: "Business Strategy & Finance Fixes", checkout: "https://whop.com/checkout/plan_1Coo860dpOi1b" },
+            { name: "SaaS Metrics Dashboard Calculator", file: "saas_metrics_dashboard_calculator.html", desc: "Calculate MRR, churn, LTV, and CAC metrics.", cat: "dev", price: "$47", product: "SaaS Developer Toolkit", checkout: "https://whop.com/checkout/plan_PzP7c9FxhjI1w" },
+            { name: "LinkedIn Connection Message Optimizer", file: "linkedin_connection_message_optimizer.html", desc: "Optimize LinkedIn outreach for higher acceptance rates.", cat: "social", price: "$47", product: "LinkedIn Automation Toolkit", checkout: "https://whop.com/checkout/plan_UVouJGuqWq8Ta" },
+            { name: "E-Commerce Shipping Cost Estimator", file: "e-commerce_shipping_cost_estimator.html", desc: "Estimate shipping costs and optimize fulfillment.", cat: "business", price: "$47", product: "Logistics & Supply Chain Toolkit", checkout: "https://whop.com/checkout/plan_FfAeUq1MbpmLR" },
+            { name: "Twitter Engagement Predictor", file: "twitter_engagement_predictor.html", desc: "Predict engagement rates and optimize posting strategy.", cat: "social", price: "$47", product: "Twitter/X Growth Suite", checkout: "https://whop.com/checkout/plan_vpYiVwIf1raxK" },
+            { name: "Email Subject Line Tester", file: "email_subject_line_tester.html", desc: "Score email subject lines for open rate potential.", cat: "content", price: "$47", product: "Email & Marketing Automation", checkout: "https://whop.com/checkout/plan_jOuYrJ8Pmyqwh" },
+            { name: "Discord Community Health Checker", file: "discord_community_health_checker.html", desc: "Assess Discord server health and growth metrics.", cat: "social", price: "$47", product: "Discord Automation Pack", checkout: "https://whop.com/checkout/plan_JdFqtuISWB5Rj" },
+            { name: "Crypto Portfolio Risk Calculator", file: "crypto_portfolio_risk_calculator.html", desc: "Calculate and analyze cryptocurrency portfolio risk.", cat: "crypto", price: "$47", product: "AI Crypto Suite", checkout: "https://whop.com/checkout/plan_dxJUwzlD9py79" },
+            { name: "Notion Workspace Audit Tool", file: "notion_workspace_audit_tool.html", desc: "Audit Notion workspace organization and productivity.", cat: "productivity", price: "$47", product: "Notion Productivity Hub", checkout: "https://whop.com/checkout/plan_NHuzSw8ia0ZJX" },
+            { name: "YouTube Thumbnail CTR Predictor", file: "youtube_thumbnail_ctr_predictor.html", desc: "Predict thumbnail click-through rates before publishing.", cat: "content", price: "$47", product: "YouTube Creator Suite", checkout: "https://whop.com/checkout/plan_YkdNQ3e8yXZSK" },
+            { name: "Pomodoro Focus Score Tracker", file: "pomodoro_focus_score_tracker.html", desc: "Track focus sessions and productivity scores.", cat: "productivity", price: "$47", product: "Productivity & Focus Suite", checkout: "https://whop.com/checkout/plan_MuEFBPrMs7iTy" },
+            { name: "Second Brain Knowledge Gap Finder", file: "second_brain_knowledge_gap_finder.html", desc: "Identify gaps in your knowledge management system.", cat: "productivity", price: "$47", product: "MIRA Ecosystem", checkout: "https://whop.com/checkout/plan_bNNeKPnE18gS5" },
+            { name: "MIRA Quick-Start Assessment", file: "mira_quick-start_assessment.html", desc: "Assess your AI productivity setup and get recommendations.", cat: "productivity", price: "$47", product: "MIRA Ecosystem", checkout: "https://whop.com/checkout/plan_bNNeKPnE18gS5" },
+            { name: "AI Tool Stack ROI Calculator", file: "ai_tool_stack_roi_calculator.html", desc: "Calculate ROI of your AI tools and find cost savings.", cat: "dev", price: "$47", product: "AI Compliance Toolkit", checkout: "https://whop.com/checkout/plan_TGwx1o2rPeyJx" }
         ];
 
         function renderTools(filtered) {
@@ -93,7 +108,7 @@
                     <p>${t.desc}</p>
                     <div class="meta"><span>${t.cat}</span> <span>${t.product}</span></div>
                     <a href="${t.file}" target="_blank">Use Free Tool</a>
-                    <a href="#" class="whop-link">Get Pro (${t.price})</a>
+                    <a href="${t.checkout}" class="whop-link" target="_blank" rel="noopener" data-tool="${t.name}">Get Pro (${t.price})</a>
                 </div>
             `).join('');
         }
