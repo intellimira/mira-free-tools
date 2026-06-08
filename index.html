@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Business Tools — 16 Online Analyzers & Calculators</title>
-    <meta name="description" content="Free online business tools: AI compliance, content creation, social media, SEO, productivity, and more. No signup required.">
-    <meta property="og:title" content="Free Business Tools — 16 Online Analyzers & Calculators">
-    <meta property="og:description" content="Free online business tools: AI compliance, content creation, social media, SEO, productivity, and more. No signup required.">
+    <title>Free Business Tools — 17 Online Analyzers & Calculators</title>
+    <meta name="description" content="Free online business tools: pricing calculator, AI compliance, content creation, social media, SEO, productivity, and more. No signup required.">
+    <meta property="og:title" content="Free Business Tools — 17 Online Analyzers & Calculators">
+    <meta property="og:description" content="Free online business tools: pricing calculator, AI compliance, content creation, social media, SEO, productivity, and more. No signup required.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
     <!-- Analytics: Plausible (privacy-first). Sign up at https://plausible.io, add your domain, then uncomment: -->
@@ -56,7 +56,7 @@
     <div class="container">
         <header>
             <h1>Free Business Tools</h1>
-            <p>16 online analyzers, calculators, and assessors — no signup, no cost.</p>
+            <p>17 online analyzers, calculators, and assessors — no signup, no cost.</p>
         </header>
 
         <input type="text" class="search" id="search" placeholder="Search tools..." oninput="filterTools()">
@@ -74,10 +74,38 @@
 
         <div class="grid" id="toolGrid"></div>
 
+        <div class="email-capture" style="background:#f0f7ff;border-radius:12px;padding:24px;margin-top:40px;text-align:center;">
+            <h3 style="font-size:1.1em;margin-bottom:8px;">📬 Get Free Tools & Business Tactics</h3>
+            <p style="color:#6e6e73;font-size:0.9em;margin-bottom:16px;">Weekly tools, pricing strategies, and growth tips. No spam.</p>
+            <div style="max-width:400px;margin:0 auto;display:flex;gap:8px;">
+                <input type="email" id="footerEmail" placeholder="your@email.com" style="flex:1;padding:10px 12px;border:1px solid #d2d2d7;border-radius:8px;font-size:0.95em;outline:none;">
+                <button onclick="captureFooterEmail()" style="padding:10px 20px;background:#0071e3;color:#fff;border:none;border-radius:8px;font-weight:500;cursor:pointer;">Subscribe</button>
+            </div>
+            <p style="font-size:0.75em;color:#86868b;margin-top:8px;" id="footerEmailStatus"></p>
+        </div>
         <footer>
             <p>Built by <a href="https://whop.com/intelligrow" target="_blank" rel="noopener">MIRA — Your 2nd Mind AI</a></p>
             <p>Need the full toolkit? <a href="https://whop.com/intelligrow" target="_blank" rel="noopener">Browse our Pro suites →</a></p>
         </footer>
+        <script>
+            function captureFooterEmail() {
+                var email = document.getElementById('footerEmail').value.trim();
+                var status = document.getElementById('footerEmailStatus');
+                if (!email || !email.includes('@')) {
+                    status.textContent = 'Please enter a valid email.';
+                    status.style.color = '#e34040';
+                    return;
+                }
+                var subs = JSON.parse(localStorage.getItem('whop_subscribers') || '[]');
+                if (!subs.find(s => s.email === email)) {
+                    subs.push({ email: email, source: 'Free Tools Page Footer', time: new Date().toISOString() });
+                    localStorage.setItem('whop_subscribers', JSON.stringify(subs));
+                }
+                status.textContent = '✅ Subscribed! Check your inbox.';
+                status.style.color = '#30a040';
+                document.getElementById('footerEmail').value = '';
+            }
+        </script>
     </div>
 
     <script>
@@ -97,7 +125,8 @@
             { name: "Pomodoro Focus Score Tracker", file: "pomodoro_focus_score_tracker.html", desc: "Track focus sessions and productivity scores.", cat: "productivity", price: "$47", product: "Productivity & Focus Suite", checkout: "https://whop.com/checkout/plan_MuEFBPrMs7iTy" },
             { name: "Second Brain Knowledge Gap Finder", file: "second_brain_knowledge_gap_finder.html", desc: "Identify gaps in your knowledge management system.", cat: "productivity", price: "$47", product: "MIRA Ecosystem", checkout: "https://whop.com/checkout/plan_bNNeKPnE18gS5" },
             { name: "MIRA Quick-Start Assessment", file: "mira_quick-start_assessment.html", desc: "Assess your AI productivity setup and get recommendations.", cat: "productivity", price: "$47", product: "MIRA Ecosystem", checkout: "https://whop.com/checkout/plan_bNNeKPnE18gS5" },
-            { name: "AI Tool Stack ROI Calculator", file: "ai_tool_stack_roi_calculator.html", desc: "Calculate ROI of your AI tools and find cost savings.", cat: "dev", price: "$47", product: "AI Compliance Toolkit", checkout: "https://whop.com/checkout/plan_TGwx1o2rPeyJx" }
+            { name: "AI Tool Stack ROI Calculator", file: "ai_tool_stack_roi_calculator.html", desc: "Calculate ROI of your AI tools and find cost savings.", cat: "dev", price: "$47", product: "AI Compliance Toolkit", checkout: "https://whop.com/checkout/plan_TGwx1o2rPeyJx" },
+            { name: "Pricing Strategy Calculator", file: "pricing_strategy_calculator.html", desc: "Find your optimal price based on costs, margins, and market position.", cat: "business", price: "$47", product: "Business Strategy & Finance Fixes", checkout: "https://whop.com/checkout/plan_1Coo860dpOi1b" }
         ];
 
         function renderTools(filtered) {
