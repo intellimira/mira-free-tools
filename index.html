@@ -92,7 +92,7 @@
         <div class="grid" id="toolGrid"></div>
 
         <div class="email-capture" style="background:#f0f7ff;border-radius:12px;padding:24px;margin-top:40px;text-align:center;">
-            <h3 style="font-size:1.1em;margin-bottom:8px;">📬 Get Free Tools & Business Tactics</h3>
+            <h3 style="font-size:1.1em;margin-bottom:8px;">Get Free Tools & Business Tactics</h3>
             <p style="color:#6e6e73;font-size:0.9em;margin-bottom:16px;">Weekly tools, pricing strategies, and growth tips. No spam.</p>
             <div style="max-width:400px;margin:0 auto;display:flex;gap:8px;">
                 <input type="email" id="footerEmail" placeholder="your@email.com" style="flex:1;padding:10px 12px;border:1px solid #d2d2d7;border-radius:8px;font-size:0.95em;outline:none;">
@@ -100,6 +100,17 @@
             </div>
             <p style="font-size:0.75em;color:#86868b;margin-top:8px;" id="footerEmailStatus"></p>
         </div>
+
+        <div style="text-align:center;margin:24px 0 16px;padding:16px 0;border-top:1px solid #e8e8ed;">
+            <p style="font-size:0.85em;color:#6e6e73;margin-bottom:10px;">Share these tools:</p>
+            <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+                <a href="https://twitter.com/intent/tweet?text=17+free+business+tools+%28no+signup%29&url=https://intellimira.github.io/mira-free-tools/" target="_blank" rel="noopener" style="display:inline-block;padding:8px 16px;background:#1d9bf0;color:#fff;border-radius:8px;text-decoration:none;font-size:0.85em;font-weight:500;">Share on X</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://intellimira.github.io/mira-free-tools/" target="_blank" rel="noopener" style="display:inline-block;padding:8px 16px;background:#0a66c2;color:#fff;border-radius:8px;text-decoration:none;font-size:0.85em;font-weight:500;">Share on LinkedIn</a>
+                <a href="https://news.ycombinator.com/submitlink?u=https://intellimira.github.io/mira-free-tools/&t=17+Free+Business+Tools" target="_blank" rel="noopener" style="display:inline-block;padding:8px 16px;background:#ff6600;color:#fff;border-radius:8px;text-decoration:none;font-size:0.85em;font-weight:500;">Post to HN</a>
+                <a href="https://www.reddit.com/submit?url=https://intellimira.github.io/mira-free-tools/&title=17+Free+Business+Tools+I+built" target="_blank" rel="noopener" style="display:inline-block;padding:8px 16px;background:#ff4500;color:#fff;border-radius:8px;text-decoration:none;font-size:0.85em;font-weight:500;">Post to Reddit</a>
+            </div>
+        </div>
+
         <footer>
             <p>Built by <a href="https://whop.com/intelligrow" target="_blank" rel="noopener">MIRA — Your 2nd Mind AI</a></p>
             <p>Need the full toolkit? <a href="https://whop.com/intelligrow" target="_blank" rel="noopener">Browse our Pro suites →</a></p>
@@ -113,10 +124,20 @@
                     status.style.color = '#e34040';
                     return;
                 }
+                // Store locally
                 var subs = JSON.parse(localStorage.getItem('whop_subscribers') || '[]');
                 if (!subs.find(s => s.email === email)) {
                     subs.push({ email: email, source: 'Free Tools Page Footer', time: new Date().toISOString() });
                     localStorage.setItem('whop_subscribers', JSON.stringify(subs));
+                }
+                // Configure your webhook URL here (Formspree, EmailJS, etc.)
+                var webhookUrl = localStorage.getItem('whop_webhook_url') || '';
+                if (webhookUrl) {
+                    fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: email, source: 'Free Tools Footer', time: new Date().toISOString() })
+                    }).catch(function(e) { console.log('Webhook error (non-fatal):', e); });
                 }
                 status.textContent = '✅ Subscribed! Check your inbox.';
                 status.style.color = '#30a040';
